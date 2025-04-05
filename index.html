@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analytics Odyssey 🌌📈</title>
+    <style>
+        body {
+            font-family: 'Helvetica', sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(45deg, #1e3c72, #2a5298);
+            color: #fff;
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 30px;
+        }
+
+        header {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 30px;
+            border-radius: 0 0 20px 20px;
+            text-align: center;
+            animation: bounceIn 1.2s ease-out;
+        }
+
+        h1 {
+            font-size: 3em;
+            margin: 0;
+            letter-spacing: 2px;
+        }
+
+        .content-wrapper {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .main-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 25px;
+            animation: fadeInLeft 1s ease-out;
+        }
+
+        .sidebar {
+            background: linear-gradient(180deg, #00c6ff, #0072ff);
+            border-radius: 20px;
+            padding: 25px;
+            animation: fadeInRight 1s ease-out;
+        }
+
+        h2 {
+            color: #ffeb3b;
+            font-size: 1.7em;
+            margin-top: 0;
+        }
+
+        .tableau-wrapper {
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+        }
+
+        .tableau-wrapper iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+        }
+
+        .metric-box {
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .metric-box:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateX(10px);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 0;
+            font-size: 0.95em;
+            opacity: 0.8;
+        }
+
+        /* Animations */
+        @keyframes bounceIn {
+            0% { transform: scale(0.8); opacity: 0; }
+            60% { transform: scale(1.05); opacity: 1; }
+            100% { transform: scale(1); }
+        }
+
+        @keyframes fadeInLeft {
+            from { transform: translateX(-50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        @keyframes fadeInRight {
+            from { transform: translateX(50px); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .content-wrapper { grid-template-columns: 1fr; }
+            .tableau-wrapper iframe { height: 400px; }
+            h1 { font-size: 2.2em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Analytics Odyssey 🌠</h1>
+            <p>Unravel the Data Universe! 🪐</p>
+        </header>
+
+        <div class="content-wrapper">
+            <div class="main-section">
+                <h2>Interactive Dashboard 🎛️</h2>
+                <p>Dive into our Tableau-powered insights! 🌊</p>
+                <div class="tableau-wrapper">
+                    <iframe src="https://public.tableau.com/views/Book1_17438599288970/Dashboard1?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link" 
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="sidebar">
+                <h2>Quick Stats ⚡</h2>
+                <div class="metric-box">
+                    <h3>Active Users 👩‍💻</h3>
+                    <p>18,500</p>
+                </div>
+                <div class="metric-box">
+                    <h3>Sales 💸</h3>
+                    <p>$2.3M</p>
+                </div>
+                <div class="metric-box">
+                    <h3>Conversion Rate 🎯</h3>
+                    <p>12.5%</p>
+                </div>
+                <div class="metric-box">
+                    <h3>Daily Visits 🌐</h3>
+                    <p>45,000</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="main-section">
+            <h2>Our Mission 🚀</h2>
+            <p>We transform raw data into actionable insights with a sprinkle of fun! Let’s make analytics an adventure. 🎉</p>
+        </div>
+
+        <footer>
+            <p>© 2025 Analytics Odyssey | Crafted with 🌟 & 🧠</p>
+        </footer>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const greeting = document.createElement('p');
+            const hour = new Date().getHours();
+            greeting.textContent = hour < 12 ? 'Good Morning! ☀️' : 
+                                 hour < 18 ? 'Good Afternoon! 🌞' : 
+                                 'Good Evening! 🌙';
+            document.querySelector('header').appendChild(greeting);
+
+            const metricBoxes = document.querySelectorAll('.metric-box');
+            metricBoxes.forEach(box => {
+                box.addEventListener('click', () => {
+                    box.style.background = 'rgba(255, 255, 255, 0.4)';
+                    setTimeout(() => {
+                        box.style.background = 'rgba(255, 255, 255, 0.2)';
+                    }, 200);
+                });
+            });
+
+            const sections = document.querySelectorAll('.main-section');
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateX(0)';
+                    }
+                });
+            }, { threshold: 0.2 });
+
+            sections.forEach(section => observer.observe(section));
+        });
+    </script>
+</body>
+</html>
